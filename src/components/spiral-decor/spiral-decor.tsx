@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import "./spiralDecor.css";
+import "./spiral-decor.css";
 
 /** Represents a single particle */
 export class Particle {
