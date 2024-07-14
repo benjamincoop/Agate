@@ -1,11 +1,11 @@
-import NavMenu from "@/components/nav-menu/nav-menu";
+import SidebarNav from "@/components/sidebar-nav/sidebar-nav";
 import SpiralDecor from "@/components/spiral-decor/spiral-decor";
  
 export default function Home() {
   return (
     <>
-      <NavMenu></NavMenu>
+      <SidebarNav></SidebarNav>
       <SpiralDecor></SpiralDecor>
     </>
-  )
+  );
 }
