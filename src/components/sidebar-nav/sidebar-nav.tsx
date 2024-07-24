@@ -5,12 +5,12 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
+} from "@/src/components/ui/sheet";
+import { Button } from "@/src/components/ui/button";
 import { MdOutlineMenu } from "react-icons/md";
 import "./sidebar-nav.css";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Separator } from "@/components/ui/separator";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/src/components/ui/accordion";
+import { Separator } from "@/src/components/ui/separator";
  
 export default function SidebarNav() {
   const menu: { title: string; children: { title: string; href: string}[] }[] = [

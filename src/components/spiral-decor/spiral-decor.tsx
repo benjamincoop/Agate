@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import "./spiral-decor.css";
+import knex from "@/db/database";
 
 /** Represents a single particle */
 export class Particle {
@@ -80,7 +81,17 @@ export default function SpiralDecor() {
         generateParticles(50);
         resize();
         anim();
+
+        testDb().then((res) => {
+            console.log("GOT DB RECORD", res);
+        });
+
     }, []);
+
+    async function testDb() {
+        const test = await knex("test").select("*");
+        return test;
+    }
 
     /** Create instances of particles to animate */
     function generateParticles(amount: number) {
