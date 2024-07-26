@@ -1,4 +1,4 @@
-import mysql from 'mysql2/promise';
+import mysql, { QueryResult } from 'mysql2/promise';
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
@@ -15,12 +15,13 @@ const pool = mysql.createPool({
   keepAliveInitialDelay: 0,
 });
 
-export default async function excuteSqlQuery(query: string) {
-  console.log('QUERYING DB', query);
+export default async function excuteSqlQuery(query: string): Promise<QueryResult> {
   try {
-    const [rows, fields] = await pool.query(query);
-    console.log('GOT DATA FROM DB', [rows, fields]);
+    const [result, rows] = await pool.query(query);
+    console.log(`QUERY EXECUTED: ${query}`, result);
+    return result;
   } catch (err) {
     console.error(err);
+    return [];
   }
 }

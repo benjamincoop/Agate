@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import "./spiral-decor.css";
-import excuteQuery from "@/src/lib/db";
+import api from "@/src/lib/apiClient";
+import Test from "@/src/models/test";
 
 /** Represents a single particle */
 export class Particle {
@@ -82,7 +83,10 @@ export default function SpiralDecor() {
         resize();
         anim();
 
-        fetch('/api/test')
+        api('/api/test').then((data) => {
+            console.log('CLIENT COMP GOT DATA', data);
+        });
+
     }, []);
 
     /** Create instances of particles to animate */
