@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import "./spiral-decor.css";
-import api from "@/src/lib/apiClient";
+import api, { ApiMethods } from "@/src/lib/apiClient";
 import Test from "@/src/models/test";
 
 /** Represents a single particle */
@@ -83,7 +83,7 @@ export default function SpiralDecor() {
         resize();
         anim();
 
-        api('/api/test').then((data) => {
+        api('/api/test', ApiMethods.DELETE).then((data) => {
             console.log('CLIENT COMP GOT DATA', data);
         });
 
